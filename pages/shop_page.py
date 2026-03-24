@@ -33,7 +33,7 @@ class ShopPage(BasePage):
         self.wait_seconds(1)
         self.js_click(*self.LIPSTICK_LISTING_ADD_TO_CART)
         self.wait_seconds(2)
-        print("Clicked Add to Cart on Lipstick listing → Going to Detail Page")
+        print("Clicked Add to Cart on Lipstick listing -> Going to Detail Page")
 
         # Step 2: detail page → click button.add-cart.detail-cart-btn
         detail_wait = WebDriverWait(self.driver, 60)
@@ -44,7 +44,7 @@ class ShopPage(BasePage):
         self.wait_seconds(1)
         self.js_click(*self.LIPSTICK_DETAIL_ADD_TO_CART)
         self.wait_seconds(2)
-        print("Clicked Add to Cart on Lipstick Detail Page → Added!")
+        print("Clicked Add to Cart on Lipstick Detail Page -> Added!")
 
     
     
@@ -55,7 +55,7 @@ class ShopPage(BasePage):
         self.wait_seconds(1)
         self.js_click(*self.QUICK_ADD_TO_CART)
         self.wait_seconds(2)
-        print(f"Clicked Add to Cart on {category_name} listing → Added!")
+        print(f"Clicked Add to Cart on {category_name} listing -> Added!")
 
     
     def add_product_to_cart(self, category_name):
@@ -63,4 +63,4 @@ class ShopPage(BasePage):
             self.add_lipstick_to_cart()
         else:
             self.add_quick_product_to_cart(category_name)
-        print(f" '{category_name}' product added to cart successfully!")
+        print(f" '{category_name}' product added to cart successfully!! ")
