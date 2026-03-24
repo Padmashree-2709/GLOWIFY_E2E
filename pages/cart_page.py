@@ -31,7 +31,7 @@ class CartPage(BasePage):
         )
         actual = len(items)
         print(f" Cart items found: {actual}")
-        assert actual >= expected_count, f"❌ Expected {expected_count} items, but found {actual}"
+        assert actual >= expected_count, f" Expected {expected_count} items, but found {actual}"
         print(f" Cart has {actual} items — OK!")
 
     def select_all_items(self):

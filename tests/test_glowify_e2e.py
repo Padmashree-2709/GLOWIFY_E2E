@@ -107,7 +107,7 @@ class TestGlowifyE2E:
         # STEP 4: Cart
         # ============================================================
         print("\n" + "="*60)
-        print("STEP 4: Cart → Checkout")
+        print("STEP 4: Cart -> Checkout")
         print("="*60)
         self.driver.get(BASE_URL)
         home_page.wait_for_homepage()
