@@ -21,13 +21,13 @@ class ChatbotPage(BasePage):
         self.click(*self.CHATBOT_TOGGLE)
         self.wait_seconds(2)
         self.wait.until(EC.visibility_of_element_located(self.CHAT_INPUT))
-        print("✅ Chatbot opened")
+        print(" Chatbot opened")
 
     def send_message(self, message):
         self.type_text(*self.CHAT_INPUT, message)
         self.wait_seconds(0.5)
         self.click(*self.CHAT_SEND)
-        print(f"✅ Sent message: '{message}'")
+        print(f" Sent message: '{message}'")
 
     def wait_for_bot_response(self, prev_count, timeout=15):
         """Wait until a new bot message appears"""
@@ -37,16 +37,16 @@ class ChatbotPage(BasePage):
             )
             bot_msgs = self.driver.find_elements(*self.BOT_MSG)
             latest = bot_msgs[-1].text.strip()
-            print(f"✅ Bot responded: '{latest[:60]}{'...' if len(latest) > 60 else ''}'")
+            print(f" Bot responded: '{latest[:60]}{'...' if len(latest) > 60 else ''}'")
             return len(bot_msgs)
         except:
-            print("⚠️ Bot response not received within timeout — continuing")
+            print("Bot response not received within timeout — continuing")
             return prev_count
 
     def close_chatbot(self):
         self.click(*self.CHAT_CLOSE)
         self.wait_seconds(1)
-        print("✅ Chatbot closed")
+        print(" Chatbot closed")
 
     def perform_chatbot_test(self):
         print("\n--- Starting Chatbot Test ---")
@@ -65,9 +65,9 @@ class ChatbotPage(BasePage):
 
         # Send "lipsticks" and wait for response
         self.send_message("lipsticks")
-        print("⏳ Waiting for bot response...")
+        print(" Waiting for bot response...")
         self.wait_for_bot_response(current_count)
 
         # Close chatbot
         self.close_chatbot()
-        print("✅ Chatbot test completed!")
+        print("Chatbot test completed!")

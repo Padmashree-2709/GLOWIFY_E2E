@@ -37,7 +37,7 @@ class CheckoutPage(BasePage):
         self.wait_seconds(2)
         checkout_wait.until(EC.visibility_of_element_located(self.FIRST_NAME))
         self.wait_seconds(1)
-        print("✅ Checkout page loaded")
+        print("Checkout page loaded")
 
     def fill_shipping_address(self):
         self.type_text(*self.FIRST_NAME, self.FIRST_NAME_VAL)
@@ -54,14 +54,14 @@ class CheckoutPage(BasePage):
         self.wait_seconds(0.3)
         self.type_text(*self.PINCODE, self.PINCODE_VAL)
         self.wait_seconds(0.3)
-        print("✅ Shipping address filled successfully")
+        print(" Shipping address filled successfully")
 
     def click_place_order(self):
         WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable(self.PLACE_ORDER_BTN)
         )
         self.js_click(*self.PLACE_ORDER_BTN)
-        print("✅ Clicked Place Order")
+        print(" Clicked Place Order")
 
     def handle_razorpay_flow(self):
         print("\n" + "="*60)
@@ -84,8 +84,8 @@ class CheckoutPage(BasePage):
             WebDriverWait(self.driver, 300).until(EC.url_contains("billing"))
             self.wait_seconds(5)
             if "billing" in self.driver.current_url:
-                print("✅ Thank you for Your Purchase — Page Loaded Successfully!")
+                print("Thank you for Your Purchase — Page Loaded Successfully!")
             else:
-                print("⚠️ Thank You page not displayed — Skipping to next step")
+                print(" Thank You page not displayed — Skipping to next step")
         except:
-            print("⚠️ Thank You page not displayed — Skipping to next step")
+            print(" Thank You page not displayed — Skipping to next step")

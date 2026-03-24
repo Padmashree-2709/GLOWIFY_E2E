@@ -20,8 +20,9 @@ class CartPage(BasePage):
         print(" Clicked Cart icon")
 
     def wait_for_cart_page(self):
-        self.wait.until(EC.presence_of_element_located(self.PROCEED_TO_CHECKOUT))
-        self.wait_seconds(1)
+        cart_wait = WebDriverWait(self.driver, 60)
+        cart_wait.until(EC.presence_of_element_located(self.PROCEED_TO_CHECKOUT))
+        self.wait_seconds(3)
         print(" Cart page loaded")
 
     def assert_cart_items(self, expected_count=3):

@@ -46,12 +46,12 @@ class TestGlowifyE2E:
         )
         self.driver.implicitly_wait(10)
         self.driver.set_window_size(1280, 800)
-        print("\n✅ Browser launched")
+        print("\n Browser launched")
 
     def teardown_method(self):
         time.sleep(2)
         self.driver.quit()
-        print("✅ Browser closed")
+        print("Browser closed")
 
     def screenshot(self, name):
         import os
@@ -69,7 +69,7 @@ class TestGlowifyE2E:
         print("STEP 1: Opening Glowify Website...")
         print("="*60)
         self.driver.get(BASE_URL)
-        print("⏳ Render server waking up — may take 2-3 mins...")
+        print(" Render server waking up — may take 2-3 mins...")
         home_page = HomePage(self.driver)
         home_page.wait_for_homepage()
         self.screenshot("01_homepage")
@@ -85,7 +85,7 @@ class TestGlowifyE2E:
         login_page.perform_login()
         home_page.wait_for_homepage()
         self.screenshot("02_login_success")
-        print("✅ Redirected to Homepage after login")
+        print(" Redirected to Homepage after login")
 
         # ============================================================
         # STEP 3: Shop → 3 Categories
@@ -101,7 +101,7 @@ class TestGlowifyE2E:
             home_page.hover_shop_and_click_category(category)
             shop_page.add_product_to_cart(category)
             self.screenshot(f"03_added_{category.lower().replace(' ', '_')}")
-        print("\n✅ All 3 products added to cart!")
+        print("\n All 3 products added to cart!")
 
         # ============================================================
         # STEP 4: Cart
@@ -154,13 +154,13 @@ class TestGlowifyE2E:
         )
         account_toggle.click()
         time.sleep(1)
-        print("✅ Clicked Account Toggle")
+        print(" Clicked Account Toggle")
         my_orders_link = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, "a[href='/shop/my-orders/']"))
         )
         my_orders_link.click()
         time.sleep(2)
-        print("✅ Clicked My Orders")
+        print("Clicked My Orders")
         WebDriverWait(self.driver, 15).until(EC.url_contains("my-orders"))
         time.sleep(1)
         self.screenshot("07_my_orders_page")
@@ -189,5 +189,5 @@ class TestGlowifyE2E:
         self.screenshot("09_logout")
 
         print("\n" + "="*60)
-        print("🎉 END-TO-END TEST COMPLETED SUCCESSFULLY!")
+        print(" END-TO-END TEST COMPLETED SUCCESSFULLY!")
         print("="*60)
