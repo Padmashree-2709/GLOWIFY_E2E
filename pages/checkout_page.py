@@ -16,10 +16,9 @@ class CheckoutPage(BasePage):
     STATE      = (By.NAME, "state")
     PINCODE    = (By.NAME, "pincode")
 
-    # Place Order Button
     PLACE_ORDER_BTN = (By.ID, "placeOrderBtn")
 
-    # Values
+   
     FIRST_NAME_VAL = "Shree"
     LAST_NAME_VAL  = "rishi"
     MOBILE_VAL     = "9360456985"
@@ -65,9 +64,9 @@ class CheckoutPage(BasePage):
 
     def handle_razorpay_flow(self):
         print("\n" + "="*60)
-        print("👤 MANUAL ACTION REQUIRED — RAZORPAY PAYMENT")
+        print(" MANUAL ACTION REQUIRED — RAZORPAY PAYMENT")
         print("="*60)
-        print("📱 Please complete these steps manually:")
+        print(" Please complete these steps manually:")
         print("   1. Enter phone: 9360456985")
         print("   2. Click Pay Later")
         print("   3. Click Amazon Pay Later")
@@ -76,7 +75,7 @@ class CheckoutPage(BasePage):
         print("   6. Close white blank page")
         print("   7. Close Payment Successful green screen")
         print("="*60)
-        print("⏳ Automation waiting for Thank You page (max 5 mins)...")
+        print(" Automation waiting for Thank You page (max 5 mins)...")
 
         self.driver.switch_to.default_content()
 
