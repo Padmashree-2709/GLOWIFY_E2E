@@ -6,7 +6,7 @@ from pages.base_page import BasePage
 
 class ChatbotPage(BasePage):
 
-    # Locators
+    
     CHATBOT_TOGGLE = (By.ID, "chatbot-toggle")
     CHAT_INPUT = (By.ID, "chat-input")
     CHAT_SEND = (By.ID, "chat-send")
@@ -51,23 +51,21 @@ class ChatbotPage(BasePage):
     def perform_chatbot_test(self):
         print("\n--- Starting Chatbot Test ---")
 
-        # Open chatbot
+     
         self.open_chatbot()
         self.wait_seconds(2)
 
-        # Get initial bot message count
+      
         initial_count = len(self.driver.find_elements(*self.BOT_MSG))
 
-        # Send "hello" and wait for response
+    
         self.send_message("hello")
-        print("⏳ Waiting for bot response...")
+        print(" Waiting for bot response...")
         current_count = self.wait_for_bot_response(initial_count)
 
-        # Send "lipsticks" and wait for response
         self.send_message("lipsticks")
         print(" Waiting for bot response...")
         self.wait_for_bot_response(current_count)
 
-        # Close chatbot
         self.close_chatbot()
         print("Chatbot test completed!")
