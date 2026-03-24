@@ -7,7 +7,7 @@ from pages.base_page import BasePage
 
 class CheckoutPage(BasePage):
 
-    # Shipping Address Fields
+   
     FIRST_NAME = (By.NAME, "first_name")
     LAST_NAME  = (By.NAME, "last_name")
     MOBILE     = (By.NAME, "mobile")
