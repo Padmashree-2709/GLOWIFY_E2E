@@ -58,7 +58,7 @@ class TestGlowifyE2E:
         path = f"screenshots/{name}.png"
         os.makedirs("screenshots", exist_ok=True)
         self.driver.save_screenshot(path)
-        print(f"📸 Screenshot saved: {path}")
+        print(f" Screenshot saved: {path}")
 
     def test_glowify_e2e(self):
 
