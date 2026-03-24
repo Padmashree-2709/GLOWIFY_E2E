@@ -6,13 +6,13 @@ from pages.base_page import BasePage
 
 class ShopPage(BasePage):
 
-    # Lipsticks listing page - Add to Cart (it's an <a> tag → goes to detail page)
+
     LIPSTICK_LISTING_ADD_TO_CART = (By.CSS_SELECTOR, "a.add-cart")
 
-    # Lipsticks detail page - Add to Cart (button)
+    
     LIPSTICK_DETAIL_ADD_TO_CART = (By.CSS_SELECTOR, "button.add-cart.detail-cart-btn")
 
-    # Other categories listing page - Add to Cart (button.quick-add)
+    
     QUICK_ADD_TO_CART = (By.CSS_SELECTOR, "button.add-cart.quick-add")
 
     def __init__(self, driver):
@@ -24,11 +24,9 @@ class ShopPage(BasePage):
         self.wait_seconds(2)
         print(" Shop category page loaded")
 
-    # -------------------------------------------------------
-    # LIPSTICKS — 2 step flow
-    # -------------------------------------------------------
+    
     def add_lipstick_to_cart(self):
-        # Step 1: listing page → click <a class="add-cart"> → goes to detail page
+        
         self.wait_for_shop_page(self.LIPSTICK_LISTING_ADD_TO_CART)
         element = self.driver.find_element(*self.LIPSTICK_LISTING_ADD_TO_CART)
         self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
@@ -48,9 +46,8 @@ class ShopPage(BasePage):
         self.wait_seconds(2)
         print("Clicked Add to Cart on Lipstick Detail Page → Added!")
 
-    # -------------------------------------------------------
-    # OTHER CATEGORIES — 1 step flow (button.quick-add)
-    # -------------------------------------------------------
+    
+    
     def add_quick_product_to_cart(self, category_name):
         self.wait_for_shop_page(self.QUICK_ADD_TO_CART)
         element = self.driver.find_element(*self.QUICK_ADD_TO_CART)
@@ -60,9 +57,7 @@ class ShopPage(BasePage):
         self.wait_seconds(2)
         print(f"Clicked Add to Cart on {category_name} listing → Added!")
 
-    # -------------------------------------------------------
-    # MAIN METHOD — called from test
-    # -------------------------------------------------------
+    
     def add_product_to_cart(self, category_name):
         if category_name == "Lipsticks":
             self.add_lipstick_to_cart()
